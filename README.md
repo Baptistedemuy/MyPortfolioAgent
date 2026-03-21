@@ -6,6 +6,7 @@ Pipeline de données + LLM pour analyser un portefeuille boursier : prix histori
 
 ```
 MyPortfolioAgent/
+├── config/                   # yml
 ├── ingestion/                # python
 ├── database/
 │   └── portfolio.duckdb      # stockage local
@@ -37,3 +38,22 @@ We will stock the data into a DuckDB -> It's an SQL database, very easy to set u
 The ingestion technology will be in python to collect the data from yfinance and ingest into the DuckDB tables
 
 And to make the transformation we will use dbt to orchestrate the steps easily
+
+## Installation
+
+```bash
+# Créer et activer l'environnement virtuel
+python3 -m venv .venv
+source .venv/bin/activate  
+
+# Installer les dépendances
+pip install -r requirements.txt
+```
+
+## Initialisation de la base de données
+
+```bash
+python database/init_db.py
+```
+
+To install to query the db : extension DuckDB dans vsCode

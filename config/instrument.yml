@@ -1,0 +1,30 @@
+instruments:
+  # ETFs
+  - IWDA.AS
+  - EMIM.AS
+  - VWRL.AS
+  - CSPX.AS
+  - EQQQ.AS
+  - VHYL.AS
+  - SGLD.AS
+  - AGGH.AS
+  - RBOT.AS
+  - EPRE.AS
+
+  # Actions
+  - UCB.BR
+  - ABI.BR
+  - KBC.BR
+  - SOLB.BR
+  - ASML.AS
+  - MSFT
+  - AAPL
+  - AMZN
+  - GOOGL
+  - META
+  - NVDA
+  - TSLA
+  - NFLX
+  - ORCL
+  - SAP
+
