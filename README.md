@@ -6,7 +6,7 @@ Pipeline de données + LLM pour analyser un portefeuille boursier : prix histori
 
 ```
 MyPortfolioAgent/
-├── ingestion/
+├── ingestion/                # python
 ├── database/
 │   └── portfolio.duckdb      # stockage local
 ├── transforms/               # modèles dbt
@@ -21,11 +21,19 @@ MyPortfolioAgent/
 
 | Couche | Outil |
 |---|---|
-| Ingestion |  |
-| Stockage |  |
-| Transform |  |
+| Ingestion | python |
+| Stockage | DuckDB |
+| Transform | dbt |
 | LLM |  |
 | Dashboard |  |
 
+## Plan and technologic choice
+
+We will collect data from yfinance, because it's free, and no API key required.
+
+We will stock the data into a DuckDB -> It's an SQL database, very easy to set up
 
 
+The ingestion technology will be in python to collect the data from yfinance and ingest into the DuckDB tables
+
+And to make the transformation we will use dbt to orchestrate the steps easily
