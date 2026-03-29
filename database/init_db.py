@@ -21,5 +21,18 @@ conn.execute("""
 """)
 
 
+conn.execute("""
+    CREATE TABLE IF NOT EXISTS raw_analyst_ratings (
+        cd_ticker   TEXT,
+        dt_date     DATE,
+        firm        TEXT,
+        from_grade  TEXT,
+        to_grade    TEXT,
+        action      TEXT,
+        ingested_at TIMESTAMP DEFAULT now(),
+        PRIMARY KEY (cd_ticker, dt_date, firm)
+    )
+""")
+
 conn.close()
 print(f"Base de données initialisée : {DB_PATH}")

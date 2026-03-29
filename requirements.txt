@@ -2,3 +2,5 @@ yfinance
 duckdb
 pyyaml
 pandas
+streamlit
+plotly

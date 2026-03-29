@@ -16,8 +16,19 @@ def load_tickers(config_path: str) -> list[str]:
     return config["instruments"]
 
 
-def fetch_prices(ticker: str) -> pd.DataFrame:
-    data = yf.download(ticker, period="max", auto_adjust=False, progress=False)
+def get_watermark(conn: duckdb.DuckDBPyConnection, ticker: str):
+    result = conn.execute(
+        "SELECT MAX(dt_date) FROM raw_prices WHERE cd_ticker = ?", [ticker]
+    ).fetchone()
+    return result[0]
+
+
+def fetch_prices(ticker: str, start_date=None) -> pd.DataFrame:
+    if start_date:
+        data = yf.download(ticker, start=start_date, auto_adjust=False, progress=False)
+    else:
+        data = yf.download(ticker, period="max", auto_adjust=False, progress=False)
+
     if data.empty:
         return pd.DataFrame()
 
@@ -41,10 +52,19 @@ def ingest(tickers: list[str]):
     total_rows = 0
 
     for ticker in tickers:
-        print(f"  Fetching {ticker}...", end=" ")
-        df = fetch_prices(ticker)
+        watermark = get_watermark(conn, ticker)
+        if watermark:
+            start_date = watermark + pd.Timedelta(days=1)
+            print(f"  {ticker}: delta load from {start_date}...", end=" ")
+        else:
+            start_date = None
+            print(f"  {ticker}: full load...", end=" ")
+
+        df = fetch_prices(ticker, start_date)
+        if watermark:
+            df = df[df["dt_date"] > watermark]
         if df.empty:
-            print("no data, skipped.")
+            print("already up to date.")
             continue
 
         conn.execute("""
