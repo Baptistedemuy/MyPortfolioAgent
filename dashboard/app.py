@@ -12,7 +12,7 @@ st.title("Portfolio Dashboard")
 @st.cache_data
 def load_tickers():
     conn = duckdb.connect(str(DB_PATH), read_only=True)
-    tickers = conn.execute("SELECT DISTINCT cd_ticker FROM raw_prices ORDER BY cd_ticker").df()
+    tickers = conn.execute("SELECT cd_ticker FROM mart.dim_instrument ORDER BY cd_ticker").df()
     conn.close()
     return tickers["cd_ticker"].tolist()
 
@@ -20,10 +20,14 @@ def load_tickers():
 @st.cache_data
 def load_prices(ticker: str) -> pd.DataFrame:
     conn = duckdb.connect(str(DB_PATH), read_only=True)
-    df = conn.execute(
-        "SELECT dt_date, cd_adj_close, nb_volume FROM raw_prices WHERE cd_ticker = ? ORDER BY dt_date",
-        [ticker]
-    ).df()
+    df = conn.execute("""
+        SELECT d.dt_date, f.cd_adj_close, f.nb_volume
+        FROM mart.fact_prices f
+        JOIN mart.dim_instrument i ON f.sk_instrument = i.sk_instrument
+        JOIN mart.dim_date d ON f.sk_date = d.sk_date
+        WHERE i.cd_ticker = ?
+        ORDER BY d.dt_date
+    """, [ticker]).df()
     conn.close()
     return df
 
@@ -32,10 +36,14 @@ def load_prices(ticker: str) -> pd.DataFrame:
 def load_analyst(ticker: str) -> pd.DataFrame:
     conn = duckdb.connect(str(DB_PATH), read_only=True)
     try:
-        df = conn.execute(
-            "SELECT dt_date, firm, from_grade, to_grade, action FROM raw_analyst_ratings WHERE cd_ticker = ? ORDER BY dt_date",
-            [ticker]
-        ).df()
+        df = conn.execute("""
+            SELECT d.dt_date, f.firm, f.from_grade, f.to_grade, f.action
+            FROM mart.fact_analyst_ratings f
+            JOIN mart.dim_instrument i ON f.sk_instrument = i.sk_instrument
+            JOIN mart.dim_date d ON f.sk_date = d.sk_date
+            WHERE i.cd_ticker = ?
+            ORDER BY d.dt_date
+        """, [ticker]).df()
     except Exception:
         df = pd.DataFrame()
     conn.close()
@@ -70,7 +78,7 @@ fig.add_trace(go.Scatter(
 
 if not analyst_filtered.empty:
     color_map = {"up": "green", "down": "red", "init": "orange", "reit": "gray"}
-    for _, row in analyst_filtered.iterrows():
+    for _, row in analyst_filtered[analyst_filtered["from_grade"] != analyst_filtered["to_grade"]].iterrows():
         price_row = prices[prices["dt_date"] == row["dt_date"]]
         if price_row.empty:
             continue

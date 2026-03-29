@@ -1,68 +1,66 @@
 # MyPortfolioAgent
 
-Pipeline de données + LLM pour analyser un portefeuille boursier : prix historiques, news, sentiment, résumés quotidiens et dashboard Streamlit.
-
-## Structure
-
-```
-MyPortfolioAgent/
-├── config/                   # yml
-├── ingestion/                # python
-├── database/
-│   └── portfolio.duckdb      # stockage local
-├── transforms/               # modèles dbt
-├── llm/
-│   └── summarizer.py         # résumé quotidien via Ollama (Mistral)
-├── dashboard/
-│   └── app.py                # Streamlit
-└── README.md
-```
+Pipeline de données + LLM pour analyser un portefeuille boursier : prix historiques, ratings analystes, sentiment et dashboard Streamlit.
 
 ## Stack
 
 | Couche | Outil |
 |---|---|
-| Ingestion | python |
+| Ingestion | Python + yfinance |
 | Stockage | DuckDB |
-| Transform | dbt |
-| LLM |  |
-| Dashboard |  |
+| Transform | dbt (Data Vault → Star Schema) |
+| LLM | À venir |
+| Dashboard | Streamlit |
 
-## Plan and technologic choice
+## Structure
 
-We will collect data from yfinance, because it's free, and no API key required.
-
-We will stock the data into a DuckDB -> It's an SQL database, very easy to set up
-
-
-The ingestion technology will be in python to collect the data from yfinance and ingest into the DuckDB tables
-
-And to make the transformation we will use dbt to orchestrate the steps easily
+```
+MyPortfolioAgent/
+├── config/
+│   └── instrument.yml        # liste des tickers
+├── ingestion/
+│   ├── ingest_prices.py      # prix OHLCV via yfinance
+│   └── ingest_analyst.py     # ratings analystes via yfinance
+├── database/
+│   ├── init_db.py            # initialisation des tables raw
+│   ├── queryDB.py            # requêtes de vérification
+│   └── portfolio.duckdb      # base de données locale
+├── transforms/
+│   ├── dbt_project.yml
+│   ├── profiles.yml
+│   └── models/
+│       ├── vault/            # Data Vault (hub + satellites)
+│       └── mart/             # Star Schema (dims + facts)
+├── dashboard/
+│   └── app.py                # Streamlit
+└── requirements.txt
+```
 
 ## Installation
 
 ```bash
-# Créer et activer l'environnement virtuel
-python3 -m venv .venv
-source .venv/bin/activate  
-
-# Installer les dépendances
-pip install -r requirements.txt
-
-
-#Activer
+python3.12 -m venv .venv
 source .venv/bin/activate
-#desactiver
-deactivate
+pip install -r requirements.txt
 ```
 
-
-## Initialisation de la base de données
+## Utilisation
 
 ```bash
+source .venv/bin/activate
+
+# 1. Initialiser la base de données
 python database/init_db.py
+
+# 2. Ingérer les données
+python ingestion/ingest_prices.py
+python ingestion/ingest_analyst.py
+
+# 3. Lancer les transformations dbt
+cd transforms
+dbt run --profiles-dir .
+cd ..
+
+# 4. Lancer le dashboard
+streamlit run dashboard/app.py
 ```
-
-To install to query the db : extension DuckDB dans vsCode
-## Initialiser venv
-

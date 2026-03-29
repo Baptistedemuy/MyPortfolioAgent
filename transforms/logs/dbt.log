@@ -1,0 +1,568 @@
+[0m17:08:04.699787 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109912ae0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ff1550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ff1310>]}
+
+
+============================== 17:08:04.702440 | 13626ae7-6fb2-432c-a2d7-212689c0f414 ==============================
+[0m17:08:04.702440 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:08:04.702760 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt run --profiles-dir .', 'log_format': 'default', 'profiles_dir': '.', 'no_print': 'None', 'cache_selected_only': 'False', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'indirect_selection': 'eager', 'quiet': 'False', 'introspect': 'True', 'version_check': 'True', 'log_path': '/Users/baptistedemuysere/Documents/05_Projets/MyPortfolioAgent/transforms/logs', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'empty': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'printer_width': '80', 'use_experimental_parser': 'False', 'target_path': 'None', 'use_colors': 'True', 'write_json': 'True'}
+[0m17:08:05.660868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a181e20>]}
+[0m17:08:05.688074 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10758c7d0>]}
+[0m17:08:05.689659 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:08:05.757479 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m17:08:05.757933 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m17:08:05.758133 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109fadc10>]}
+[0m17:08:06.281711 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a6ae630>]}
+[0m17:08:06.311166 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/baptistedemuysere/Documents/05_Projets/MyPortfolioAgent/transforms/target/manifest.json
+[0m17:08:06.312128 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/baptistedemuysere/Documents/05_Projets/MyPortfolioAgent/transforms/target/semantic_manifest.json
+[0m17:08:06.321026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a6ae570>]}
+[0m17:08:06.321257 [info ] [MainThread]: Found 7 models, 2 sources, 475 macros
+[0m17:08:06.321430 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a6713a0>]}
+[0m17:08:06.322318 [info ] [MainThread]: 
+[0m17:08:06.322489 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m17:08:06.322618 [info ] [MainThread]: 
+[0m17:08:06.322829 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:08:06.324983 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_portfolio'
+[0m17:08:06.356181 [debug] [ThreadPool]: Using duckdb connection "list_portfolio"
+[0m17:08:06.356393 [debug] [ThreadPool]: On list_portfolio: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "connection_name": "list_portfolio"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"portfolio"'
+    
+  
+  
+[0m17:08:06.356555 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:08:06.365447 [debug] [ThreadPool]: SQL status: OK in 0.009 seconds
+[0m17:08:06.366197 [debug] [ThreadPool]: On list_portfolio: Close
+[0m17:08:06.367370 [debug] [ThreadPool]: Using duckdb connection "list_portfolio"
+[0m17:08:06.367604 [debug] [ThreadPool]: On list_portfolio: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "connection_name": "list_portfolio"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"portfolio"'
+    
+  
+  
+[0m17:08:06.367799 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:08:06.368266 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.368871 [debug] [ThreadPool]: On list_portfolio: Close
+[0m17:08:06.369179 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_portfolio, now create_portfolio_vault)
+[0m17:08:06.369373 [debug] [ThreadPool]: Creating schema "database: "portfolio"
+schema: "vault"
+"
+[0m17:08:06.372613 [debug] [ThreadPool]: Using duckdb connection "create_portfolio_vault"
+[0m17:08:06.372793 [debug] [ThreadPool]: On create_portfolio_vault: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "connection_name": "create_portfolio_vault"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='portfolio'
+        and type='sqlite'
+    
+  
+[0m17:08:06.372917 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:08:06.373296 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.373867 [debug] [ThreadPool]: Using duckdb connection "create_portfolio_vault"
+[0m17:08:06.373985 [debug] [ThreadPool]: On create_portfolio_vault: BEGIN
+[0m17:08:06.374154 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.374262 [debug] [ThreadPool]: Using duckdb connection "create_portfolio_vault"
+[0m17:08:06.374371 [debug] [ThreadPool]: On create_portfolio_vault: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "connection_name": "create_portfolio_vault"} */
+
+    
+    
+        create schema if not exists "portfolio"."vault"
+    
+[0m17:08:06.374581 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.374918 [debug] [ThreadPool]: On create_portfolio_vault: COMMIT
+[0m17:08:06.375039 [debug] [ThreadPool]: Using duckdb connection "create_portfolio_vault"
+[0m17:08:06.375143 [debug] [ThreadPool]: On create_portfolio_vault: COMMIT
+[0m17:08:06.375518 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.375633 [debug] [ThreadPool]: On create_portfolio_vault: Close
+[0m17:08:06.375853 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_portfolio_vault, now create_portfolio_mart)
+[0m17:08:06.376069 [debug] [ThreadPool]: Creating schema "database: "portfolio"
+schema: "mart"
+"
+[0m17:08:06.378089 [debug] [ThreadPool]: Using duckdb connection "create_portfolio_mart"
+[0m17:08:06.378257 [debug] [ThreadPool]: On create_portfolio_mart: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "connection_name": "create_portfolio_mart"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='portfolio'
+        and type='sqlite'
+    
+  
+[0m17:08:06.378389 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:08:06.378738 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.379293 [debug] [ThreadPool]: Using duckdb connection "create_portfolio_mart"
+[0m17:08:06.379430 [debug] [ThreadPool]: On create_portfolio_mart: BEGIN
+[0m17:08:06.379614 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.379732 [debug] [ThreadPool]: Using duckdb connection "create_portfolio_mart"
+[0m17:08:06.379850 [debug] [ThreadPool]: On create_portfolio_mart: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "connection_name": "create_portfolio_mart"} */
+
+    
+    
+        create schema if not exists "portfolio"."mart"
+    
+[0m17:08:06.380029 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.380389 [debug] [ThreadPool]: On create_portfolio_mart: COMMIT
+[0m17:08:06.380520 [debug] [ThreadPool]: Using duckdb connection "create_portfolio_mart"
+[0m17:08:06.380641 [debug] [ThreadPool]: On create_portfolio_mart: COMMIT
+[0m17:08:06.380840 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.380960 [debug] [ThreadPool]: On create_portfolio_mart: Close
+[0m17:08:06.381578 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_portfolio_mart, now list_portfolio_vault)
+[0m17:08:06.383998 [debug] [ThreadPool]: Using duckdb connection "list_portfolio_vault"
+[0m17:08:06.384157 [debug] [ThreadPool]: On list_portfolio_vault: BEGIN
+[0m17:08:06.384279 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:08:06.384477 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.384594 [debug] [ThreadPool]: Using duckdb connection "list_portfolio_vault"
+[0m17:08:06.384721 [debug] [ThreadPool]: On list_portfolio_vault: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "connection_name": "list_portfolio_vault"} */
+select
+      'portfolio' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'vault'
+    and lower(table_catalog) = 'portfolio'
+  
+[0m17:08:06.386363 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m17:08:06.386957 [debug] [ThreadPool]: On list_portfolio_vault: ROLLBACK
+[0m17:08:06.387650 [debug] [ThreadPool]: Failed to rollback 'list_portfolio_vault'
+[0m17:08:06.387818 [debug] [ThreadPool]: On list_portfolio_vault: Close
+[0m17:08:06.388031 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_portfolio_vault, now list_portfolio_mart)
+[0m17:08:06.388861 [debug] [ThreadPool]: Using duckdb connection "list_portfolio_mart"
+[0m17:08:06.389000 [debug] [ThreadPool]: On list_portfolio_mart: BEGIN
+[0m17:08:06.389105 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:08:06.389293 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:08:06.389429 [debug] [ThreadPool]: Using duckdb connection "list_portfolio_mart"
+[0m17:08:06.389565 [debug] [ThreadPool]: On list_portfolio_mart: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "connection_name": "list_portfolio_mart"} */
+select
+      'portfolio' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'mart'
+    and lower(table_catalog) = 'portfolio'
+  
+[0m17:08:06.390217 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:08:06.390728 [debug] [ThreadPool]: On list_portfolio_mart: ROLLBACK
+[0m17:08:06.391122 [debug] [ThreadPool]: Failed to rollback 'list_portfolio_mart'
+[0m17:08:06.391247 [debug] [ThreadPool]: On list_portfolio_mart: Close
+[0m17:08:06.391483 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ff30b0>]}
+[0m17:08:06.391717 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:08:06.391855 [debug] [MainThread]: On master: BEGIN
+[0m17:08:06.391969 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:08:06.392200 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:08:06.392379 [debug] [MainThread]: On master: COMMIT
+[0m17:08:06.392519 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:08:06.392647 [debug] [MainThread]: On master: COMMIT
+[0m17:08:06.392832 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:08:06.392957 [debug] [MainThread]: On master: Close
+[0m17:08:06.395358 [debug] [Thread-1 (]: Began running node model.portfolio.hub_instrument
+[0m17:08:06.395582 [info ] [Thread-1 (]: 1 of 7 START sql table model vault.hub_instrument .............................. [RUN]
+[0m17:08:06.395779 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_portfolio_mart, now model.portfolio.hub_instrument)
+[0m17:08:06.395944 [debug] [Thread-1 (]: Began compiling node model.portfolio.hub_instrument
+[0m17:08:06.399361 [debug] [Thread-1 (]: Writing injected SQL for node "model.portfolio.hub_instrument"
+[0m17:08:06.399862 [debug] [Thread-1 (]: Began executing node model.portfolio.hub_instrument
+[0m17:08:06.414722 [debug] [Thread-1 (]: Writing runtime sql for node "model.portfolio.hub_instrument"
+[0m17:08:06.415353 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.hub_instrument"
+[0m17:08:06.415525 [debug] [Thread-1 (]: On model.portfolio.hub_instrument: BEGIN
+[0m17:08:06.415672 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:06.415956 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.416098 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.hub_instrument"
+[0m17:08:06.416245 [debug] [Thread-1 (]: On model.portfolio.hub_instrument: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.hub_instrument"} */
+
+  
+    
+    
+
+    create  table
+      "portfolio"."vault"."hub_instrument__dbt_tmp"
+  
+    as (
+      SELECT
+    md5(cd_ticker)   AS hk_instrument,
+    cd_ticker,
+    MIN(ingested_at) AS load_dts,
+    'yfinance'       AS rec_src
+FROM "portfolio"."main"."raw_prices"
+GROUP BY cd_ticker
+    );
+  
+  
+[0m17:08:06.419154 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m17:08:06.422364 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.hub_instrument"
+[0m17:08:06.422571 [debug] [Thread-1 (]: On model.portfolio.hub_instrument: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.hub_instrument"} */
+alter table "portfolio"."vault"."hub_instrument__dbt_tmp" rename to "hub_instrument"
+[0m17:08:06.422954 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.429137 [debug] [Thread-1 (]: On model.portfolio.hub_instrument: COMMIT
+[0m17:08:06.429361 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.hub_instrument"
+[0m17:08:06.429523 [debug] [Thread-1 (]: On model.portfolio.hub_instrument: COMMIT
+[0m17:08:06.430072 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.432621 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.hub_instrument"
+[0m17:08:06.432795 [debug] [Thread-1 (]: On model.portfolio.hub_instrument: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.hub_instrument"} */
+
+      drop table if exists "portfolio"."vault"."hub_instrument__dbt_backup" cascade
+    
+[0m17:08:06.433087 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.434197 [debug] [Thread-1 (]: On model.portfolio.hub_instrument: Close
+[0m17:08:06.435127 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10abd7650>]}
+[0m17:08:06.435419 [info ] [Thread-1 (]: 1 of 7 OK created sql table model vault.hub_instrument ......................... [[32mOK[0m in 0.04s]
+[0m17:08:06.435692 [debug] [Thread-1 (]: Finished running node model.portfolio.hub_instrument
+[0m17:08:06.435874 [debug] [Thread-1 (]: Began running node model.portfolio.sat_analyst
+[0m17:08:06.436152 [info ] [Thread-1 (]: 2 of 7 START sql table model vault.sat_analyst ................................. [RUN]
+[0m17:08:06.436354 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.portfolio.hub_instrument, now model.portfolio.sat_analyst)
+[0m17:08:06.436508 [debug] [Thread-1 (]: Began compiling node model.portfolio.sat_analyst
+[0m17:08:06.437683 [debug] [Thread-1 (]: Writing injected SQL for node "model.portfolio.sat_analyst"
+[0m17:08:06.438036 [debug] [Thread-1 (]: Began executing node model.portfolio.sat_analyst
+[0m17:08:06.440142 [debug] [Thread-1 (]: Writing runtime sql for node "model.portfolio.sat_analyst"
+[0m17:08:06.440446 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_analyst"
+[0m17:08:06.440603 [debug] [Thread-1 (]: On model.portfolio.sat_analyst: BEGIN
+[0m17:08:06.440742 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:06.440983 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.441124 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_analyst"
+[0m17:08:06.441268 [debug] [Thread-1 (]: On model.portfolio.sat_analyst: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.sat_analyst"} */
+
+  
+    
+    
+
+    create  table
+      "portfolio"."vault"."sat_analyst__dbt_tmp"
+  
+    as (
+      SELECT
+    md5(cd_ticker) AS hk_instrument,
+    cd_ticker,
+    dt_date,
+    ingested_at    AS load_dts,
+    firm,
+    from_grade,
+    to_grade,
+    action
+FROM "portfolio"."main"."raw_analyst_ratings"
+    );
+  
+  
+[0m17:08:06.445523 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m17:08:06.446879 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_analyst"
+[0m17:08:06.447118 [debug] [Thread-1 (]: On model.portfolio.sat_analyst: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.sat_analyst"} */
+alter table "portfolio"."vault"."sat_analyst__dbt_tmp" rename to "sat_analyst"
+[0m17:08:06.447396 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.448040 [debug] [Thread-1 (]: On model.portfolio.sat_analyst: COMMIT
+[0m17:08:06.448233 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_analyst"
+[0m17:08:06.448376 [debug] [Thread-1 (]: On model.portfolio.sat_analyst: COMMIT
+[0m17:08:06.449968 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:06.451202 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_analyst"
+[0m17:08:06.451381 [debug] [Thread-1 (]: On model.portfolio.sat_analyst: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.sat_analyst"} */
+
+      drop table if exists "portfolio"."vault"."sat_analyst__dbt_backup" cascade
+    
+[0m17:08:06.451643 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.452279 [debug] [Thread-1 (]: On model.portfolio.sat_analyst: Close
+[0m17:08:06.452536 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ac39d90>]}
+[0m17:08:06.452825 [info ] [Thread-1 (]: 2 of 7 OK created sql table model vault.sat_analyst ............................ [[32mOK[0m in 0.02s]
+[0m17:08:06.453055 [debug] [Thread-1 (]: Finished running node model.portfolio.sat_analyst
+[0m17:08:06.453216 [debug] [Thread-1 (]: Began running node model.portfolio.sat_prices
+[0m17:08:06.453535 [info ] [Thread-1 (]: 3 of 7 START sql table model vault.sat_prices .................................. [RUN]
+[0m17:08:06.453832 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.portfolio.sat_analyst, now model.portfolio.sat_prices)
+[0m17:08:06.454007 [debug] [Thread-1 (]: Began compiling node model.portfolio.sat_prices
+[0m17:08:06.455385 [debug] [Thread-1 (]: Writing injected SQL for node "model.portfolio.sat_prices"
+[0m17:08:06.455735 [debug] [Thread-1 (]: Began executing node model.portfolio.sat_prices
+[0m17:08:06.456981 [debug] [Thread-1 (]: Writing runtime sql for node "model.portfolio.sat_prices"
+[0m17:08:06.457285 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_prices"
+[0m17:08:06.457440 [debug] [Thread-1 (]: On model.portfolio.sat_prices: BEGIN
+[0m17:08:06.457570 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:06.457805 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.457945 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_prices"
+[0m17:08:06.458093 [debug] [Thread-1 (]: On model.portfolio.sat_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.sat_prices"} */
+
+  
+    
+    
+
+    create  table
+      "portfolio"."vault"."sat_prices__dbt_tmp"
+  
+    as (
+      SELECT
+    md5(cd_ticker) AS hk_instrument,
+    cd_ticker,
+    dt_date,
+    ingested_at    AS load_dts,
+    cd_open,
+    cd_high,
+    cd_low,
+    cd_close,
+    cd_adj_close,
+    nb_volume
+FROM "portfolio"."main"."raw_prices"
+    );
+  
+  
+[0m17:08:06.508542 [debug] [Thread-1 (]: SQL status: OK in 0.050 seconds
+[0m17:08:06.510345 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_prices"
+[0m17:08:06.510531 [debug] [Thread-1 (]: On model.portfolio.sat_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.sat_prices"} */
+alter table "portfolio"."vault"."sat_prices__dbt_tmp" rename to "sat_prices"
+[0m17:08:06.510852 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.511420 [debug] [Thread-1 (]: On model.portfolio.sat_prices: COMMIT
+[0m17:08:06.511570 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_prices"
+[0m17:08:06.511705 [debug] [Thread-1 (]: On model.portfolio.sat_prices: COMMIT
+[0m17:08:06.513211 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:06.514149 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.sat_prices"
+[0m17:08:06.514297 [debug] [Thread-1 (]: On model.portfolio.sat_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.sat_prices"} */
+
+      drop table if exists "portfolio"."vault"."sat_prices__dbt_backup" cascade
+    
+[0m17:08:06.514536 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.515091 [debug] [Thread-1 (]: On model.portfolio.sat_prices: Close
+[0m17:08:06.515358 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a7d4d70>]}
+[0m17:08:06.515664 [info ] [Thread-1 (]: 3 of 7 OK created sql table model vault.sat_prices ............................. [[32mOK[0m in 0.06s]
+[0m17:08:06.515925 [debug] [Thread-1 (]: Finished running node model.portfolio.sat_prices
+[0m17:08:06.516118 [debug] [Thread-1 (]: Began running node model.portfolio.dim_instrument
+[0m17:08:06.516357 [info ] [Thread-1 (]: 4 of 7 START sql table model mart.dim_instrument ............................... [RUN]
+[0m17:08:06.516617 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.portfolio.sat_prices, now model.portfolio.dim_instrument)
+[0m17:08:06.516821 [debug] [Thread-1 (]: Began compiling node model.portfolio.dim_instrument
+[0m17:08:06.518127 [debug] [Thread-1 (]: Writing injected SQL for node "model.portfolio.dim_instrument"
+[0m17:08:06.518528 [debug] [Thread-1 (]: Began executing node model.portfolio.dim_instrument
+[0m17:08:06.519786 [debug] [Thread-1 (]: Writing runtime sql for node "model.portfolio.dim_instrument"
+[0m17:08:06.520160 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_instrument"
+[0m17:08:06.520316 [debug] [Thread-1 (]: On model.portfolio.dim_instrument: BEGIN
+[0m17:08:06.520457 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:06.520699 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.520844 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_instrument"
+[0m17:08:06.521008 [debug] [Thread-1 (]: On model.portfolio.dim_instrument: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.dim_instrument"} */
+
+  
+    
+    
+
+    create  table
+      "portfolio"."mart"."dim_instrument__dbt_tmp"
+  
+    as (
+      SELECT
+    hk_instrument AS sk_instrument,
+    cd_ticker,
+    CASE
+        WHEN cd_ticker LIKE '%.AS' OR cd_ticker LIKE '%.BR' THEN 'EU'
+        ELSE 'US'
+    END AS market
+FROM "portfolio"."vault"."hub_instrument"
+    );
+  
+  
+[0m17:08:06.521531 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.522853 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_instrument"
+[0m17:08:06.523060 [debug] [Thread-1 (]: On model.portfolio.dim_instrument: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.dim_instrument"} */
+alter table "portfolio"."mart"."dim_instrument__dbt_tmp" rename to "dim_instrument"
+[0m17:08:06.523340 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.523917 [debug] [Thread-1 (]: On model.portfolio.dim_instrument: COMMIT
+[0m17:08:06.524080 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_instrument"
+[0m17:08:06.524214 [debug] [Thread-1 (]: On model.portfolio.dim_instrument: COMMIT
+[0m17:08:06.524514 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.526316 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_instrument"
+[0m17:08:06.526487 [debug] [Thread-1 (]: On model.portfolio.dim_instrument: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.dim_instrument"} */
+
+      drop table if exists "portfolio"."mart"."dim_instrument__dbt_backup" cascade
+    
+[0m17:08:06.526738 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.527323 [debug] [Thread-1 (]: On model.portfolio.dim_instrument: Close
+[0m17:08:06.527531 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ac67c50>]}
+[0m17:08:06.527779 [info ] [Thread-1 (]: 4 of 7 OK created sql table model mart.dim_instrument .......................... [[32mOK[0m in 0.01s]
+[0m17:08:06.528006 [debug] [Thread-1 (]: Finished running node model.portfolio.dim_instrument
+[0m17:08:06.528170 [debug] [Thread-1 (]: Began running node model.portfolio.fact_analyst_ratings
+[0m17:08:06.528383 [info ] [Thread-1 (]: 5 of 7 START sql table model mart.fact_analyst_ratings ......................... [RUN]
+[0m17:08:06.528569 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.portfolio.dim_instrument, now model.portfolio.fact_analyst_ratings)
+[0m17:08:06.528719 [debug] [Thread-1 (]: Began compiling node model.portfolio.fact_analyst_ratings
+[0m17:08:06.529943 [debug] [Thread-1 (]: Writing injected SQL for node "model.portfolio.fact_analyst_ratings"
+[0m17:08:06.530242 [debug] [Thread-1 (]: Began executing node model.portfolio.fact_analyst_ratings
+[0m17:08:06.531475 [debug] [Thread-1 (]: Writing runtime sql for node "model.portfolio.fact_analyst_ratings"
+[0m17:08:06.531779 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_analyst_ratings"
+[0m17:08:06.531929 [debug] [Thread-1 (]: On model.portfolio.fact_analyst_ratings: BEGIN
+[0m17:08:06.532070 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:06.532301 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.532440 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_analyst_ratings"
+[0m17:08:06.532592 [debug] [Thread-1 (]: On model.portfolio.fact_analyst_ratings: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.fact_analyst_ratings"} */
+
+  
+    
+    
+
+    create  table
+      "portfolio"."mart"."fact_analyst_ratings__dbt_tmp"
+  
+    as (
+      SELECT
+    sa.hk_instrument                                  AS sk_instrument,
+    CAST(STRFTIME(sa.dt_date, '%Y%m%d') AS INTEGER)  AS sk_date,
+    sa.firm,
+    sa.from_grade,
+    sa.to_grade,
+    sa.action
+FROM "portfolio"."vault"."sat_analyst" sa
+    );
+  
+  
+[0m17:08:06.536123 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m17:08:06.537536 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_analyst_ratings"
+[0m17:08:06.537725 [debug] [Thread-1 (]: On model.portfolio.fact_analyst_ratings: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.fact_analyst_ratings"} */
+alter table "portfolio"."mart"."fact_analyst_ratings__dbt_tmp" rename to "fact_analyst_ratings"
+[0m17:08:06.538008 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.538745 [debug] [Thread-1 (]: On model.portfolio.fact_analyst_ratings: COMMIT
+[0m17:08:06.538979 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_analyst_ratings"
+[0m17:08:06.539127 [debug] [Thread-1 (]: On model.portfolio.fact_analyst_ratings: COMMIT
+[0m17:08:06.540510 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:06.541633 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_analyst_ratings"
+[0m17:08:06.541802 [debug] [Thread-1 (]: On model.portfolio.fact_analyst_ratings: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.fact_analyst_ratings"} */
+
+      drop table if exists "portfolio"."mart"."fact_analyst_ratings__dbt_backup" cascade
+    
+[0m17:08:06.542034 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.542631 [debug] [Thread-1 (]: On model.portfolio.fact_analyst_ratings: Close
+[0m17:08:06.542901 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a7e1010>]}
+[0m17:08:06.543187 [info ] [Thread-1 (]: 5 of 7 OK created sql table model mart.fact_analyst_ratings .................... [[32mOK[0m in 0.01s]
+[0m17:08:06.543433 [debug] [Thread-1 (]: Finished running node model.portfolio.fact_analyst_ratings
+[0m17:08:06.543601 [debug] [Thread-1 (]: Began running node model.portfolio.dim_date
+[0m17:08:06.543817 [info ] [Thread-1 (]: 6 of 7 START sql table model mart.dim_date ..................................... [RUN]
+[0m17:08:06.543991 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.portfolio.fact_analyst_ratings, now model.portfolio.dim_date)
+[0m17:08:06.544146 [debug] [Thread-1 (]: Began compiling node model.portfolio.dim_date
+[0m17:08:06.545410 [debug] [Thread-1 (]: Writing injected SQL for node "model.portfolio.dim_date"
+[0m17:08:06.545716 [debug] [Thread-1 (]: Began executing node model.portfolio.dim_date
+[0m17:08:06.546962 [debug] [Thread-1 (]: Writing runtime sql for node "model.portfolio.dim_date"
+[0m17:08:06.547250 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_date"
+[0m17:08:06.547401 [debug] [Thread-1 (]: On model.portfolio.dim_date: BEGIN
+[0m17:08:06.547552 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:06.547862 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.548008 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_date"
+[0m17:08:06.548167 [debug] [Thread-1 (]: On model.portfolio.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.dim_date"} */
+
+  
+    
+    
+
+    create  table
+      "portfolio"."mart"."dim_date__dbt_tmp"
+  
+    as (
+      SELECT DISTINCT
+    CAST(STRFTIME(dt_date, '%Y%m%d') AS INTEGER) AS sk_date,
+    dt_date,
+    YEAR(dt_date)      AS year,
+    MONTH(dt_date)     AS month,
+    DAY(dt_date)       AS day,
+    DAYOFWEEK(dt_date) AS day_of_week
+FROM "portfolio"."vault"."sat_prices"
+    );
+  
+  
+[0m17:08:06.560187 [debug] [Thread-1 (]: SQL status: OK in 0.012 seconds
+[0m17:08:06.561744 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_date"
+[0m17:08:06.561920 [debug] [Thread-1 (]: On model.portfolio.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.dim_date"} */
+alter table "portfolio"."mart"."dim_date__dbt_tmp" rename to "dim_date"
+[0m17:08:06.562198 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.562756 [debug] [Thread-1 (]: On model.portfolio.dim_date: COMMIT
+[0m17:08:06.562915 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_date"
+[0m17:08:06.563053 [debug] [Thread-1 (]: On model.portfolio.dim_date: COMMIT
+[0m17:08:06.563768 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m17:08:06.564851 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.dim_date"
+[0m17:08:06.565018 [debug] [Thread-1 (]: On model.portfolio.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.dim_date"} */
+
+      drop table if exists "portfolio"."mart"."dim_date__dbt_backup" cascade
+    
+[0m17:08:06.565249 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.565831 [debug] [Thread-1 (]: On model.portfolio.dim_date: Close
+[0m17:08:06.566081 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10abd7a40>]}
+[0m17:08:06.566381 [info ] [Thread-1 (]: 6 of 7 OK created sql table model mart.dim_date ................................ [[32mOK[0m in 0.02s]
+[0m17:08:06.566681 [debug] [Thread-1 (]: Finished running node model.portfolio.dim_date
+[0m17:08:06.566901 [debug] [Thread-1 (]: Began running node model.portfolio.fact_prices
+[0m17:08:06.567207 [info ] [Thread-1 (]: 7 of 7 START sql table model mart.fact_prices .................................. [RUN]
+[0m17:08:06.567472 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.portfolio.dim_date, now model.portfolio.fact_prices)
+[0m17:08:06.567654 [debug] [Thread-1 (]: Began compiling node model.portfolio.fact_prices
+[0m17:08:06.568982 [debug] [Thread-1 (]: Writing injected SQL for node "model.portfolio.fact_prices"
+[0m17:08:06.569364 [debug] [Thread-1 (]: Began executing node model.portfolio.fact_prices
+[0m17:08:06.571616 [debug] [Thread-1 (]: Writing runtime sql for node "model.portfolio.fact_prices"
+[0m17:08:06.571959 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_prices"
+[0m17:08:06.572115 [debug] [Thread-1 (]: On model.portfolio.fact_prices: BEGIN
+[0m17:08:06.572255 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:08:06.572509 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.572653 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_prices"
+[0m17:08:06.572803 [debug] [Thread-1 (]: On model.portfolio.fact_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.fact_prices"} */
+
+  
+    
+    
+
+    create  table
+      "portfolio"."mart"."fact_prices__dbt_tmp"
+  
+    as (
+      SELECT
+    sp.hk_instrument                                  AS sk_instrument,
+    CAST(STRFTIME(sp.dt_date, '%Y%m%d') AS INTEGER)  AS sk_date,
+    sp.cd_open,
+    sp.cd_high,
+    sp.cd_low,
+    sp.cd_close,
+    sp.cd_adj_close,
+    sp.nb_volume
+FROM "portfolio"."vault"."sat_prices" sp
+    );
+  
+  
+[0m17:08:06.625991 [debug] [Thread-1 (]: SQL status: OK in 0.053 seconds
+[0m17:08:06.627870 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_prices"
+[0m17:08:06.628114 [debug] [Thread-1 (]: On model.portfolio.fact_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.fact_prices"} */
+alter table "portfolio"."mart"."fact_prices__dbt_tmp" rename to "fact_prices"
+[0m17:08:06.628459 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.629083 [debug] [Thread-1 (]: On model.portfolio.fact_prices: COMMIT
+[0m17:08:06.629238 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_prices"
+[0m17:08:06.629386 [debug] [Thread-1 (]: On model.portfolio.fact_prices: COMMIT
+[0m17:08:06.631293 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m17:08:06.632534 [debug] [Thread-1 (]: Using duckdb connection "model.portfolio.fact_prices"
+[0m17:08:06.632737 [debug] [Thread-1 (]: On model.portfolio.fact_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "portfolio", "target_name": "dev", "node_id": "model.portfolio.fact_prices"} */
+
+      drop table if exists "portfolio"."mart"."fact_prices__dbt_backup" cascade
+    
+[0m17:08:06.633046 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m17:08:06.633685 [debug] [Thread-1 (]: On model.portfolio.fact_prices: Close
+[0m17:08:06.633976 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '13626ae7-6fb2-432c-a2d7-212689c0f414', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ac2ad20>]}
+[0m17:08:06.634266 [info ] [Thread-1 (]: 7 of 7 OK created sql table model mart.fact_prices ............................. [[32mOK[0m in 0.07s]
+[0m17:08:06.634541 [debug] [Thread-1 (]: Finished running node model.portfolio.fact_prices
+[0m17:08:06.635139 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:08:06.635319 [debug] [MainThread]: On master: BEGIN
+[0m17:08:06.635460 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:08:06.635701 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:08:06.635839 [debug] [MainThread]: On master: COMMIT
+[0m17:08:06.635964 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:08:06.636084 [debug] [MainThread]: On master: COMMIT
+[0m17:08:06.636257 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:08:06.636382 [debug] [MainThread]: On master: Close
+[0m17:08:06.636539 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:08:06.636657 [debug] [MainThread]: Connection 'model.portfolio.fact_prices' was properly closed.
+[0m17:08:06.636814 [info ] [MainThread]: 
+[0m17:08:06.636967 [info ] [MainThread]: Finished running 7 table models in 0 hours 0 minutes and 0.31 seconds (0.31s).
+[0m17:08:06.637560 [debug] [MainThread]: Command end result
+[0m17:08:06.647661 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/baptistedemuysere/Documents/05_Projets/MyPortfolioAgent/transforms/target/manifest.json
+[0m17:08:06.648780 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/baptistedemuysere/Documents/05_Projets/MyPortfolioAgent/transforms/target/semantic_manifest.json
+[0m17:08:06.651580 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/baptistedemuysere/Documents/05_Projets/MyPortfolioAgent/transforms/target/run_results.json
+[0m17:08:06.651736 [info ] [MainThread]: 
+[0m17:08:06.651907 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m17:08:06.652043 [info ] [MainThread]: 
+[0m17:08:06.652189 [info ] [MainThread]: Done. PASS=7 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=7
+[0m17:08:06.668024 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.004135, "process_in_blocks": "0", "process_kernel_time": 0.27804, "process_mem_max_rss": "211828736", "process_out_blocks": "0", "process_user_time": 1.74248}
+[0m17:08:06.668325 [debug] [MainThread]: Command `dbt run` succeeded at 17:08:06.668279 after 2.00 seconds
+[0m17:08:06.668508 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a4f60f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a6ae690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ac24f80>]}
+[0m17:08:06.668685 [debug] [MainThread]: Flushing usage events
+[0m17:08:07.230669 [debug] [MainThread]: An error was encountered while trying to flush usage events

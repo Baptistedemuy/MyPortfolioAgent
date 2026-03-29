@@ -1,0 +1,19 @@
+name: portfolio
+version: "1.0.0"
+config-version: 2
+
+profile: portfolio
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target"]
+
+models:
+  portfolio:
+    vault:
+      +schema: vault
+      +materialized: table
+    mart:
+      +schema: mart
+      +materialized: table
