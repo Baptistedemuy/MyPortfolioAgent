@@ -48,7 +48,14 @@ source .venv/bin/activate
 
 # Installer les dépendances
 pip install -r requirements.txt
+
+
+#Activer
+source .venv/bin/activate
+#desactiver
+deactivate
 ```
+
 
 ## Initialisation de la base de données
 
@@ -57,3 +64,5 @@ python database/init_db.py
 ```
 
 To install to query the db : extension DuckDB dans vsCode
+## Initialiser venv
+

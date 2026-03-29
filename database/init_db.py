@@ -1,6 +1,7 @@
 import duckdb
+from pathlib import Path
 
-DB_PATH = "database/portfolio.duckdb"
+DB_PATH = Path(__file__).resolve().parent / "portfolio.duckdb"
 
 conn = duckdb.connect(DB_PATH)
 

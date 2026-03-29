@@ -4,12 +4,12 @@ instruments:
   - EMIM.AS
   - VWRL.AS
   - CSPX.AS
-  - EQQQ.AS
+  # - EQQQ.AS
   - VHYL.AS
   - SGLD.AS
   - AGGH.AS
-  - RBOT.AS
-  - EPRE.AS
+  # - RBOT.AS
+  # - EPRE.AS
 
   # Actions
   - UCB.BR
